@@ -42,3 +42,8 @@ print('# of correct predictions: ' + str(correct_predictions))
 print('# of incorrect predictions: ' + str(incorrect_predictions))
 print('Percent correct: ' + str(100.0 * correct_predictions / (correct_predictions + incorrect_predictions)))
 
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(nb, counts, target, cv=10)
+print(scores)
+print(scores.mean())

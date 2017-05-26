@@ -17,8 +17,15 @@ def tokenize_0(text):
 def tokenize_1(text):
     return text.split()
 
+def tokenize_2(text):
+    text = re.sub(r'[^\w\s]','',text)
+    return text.split()
+
+def tokenize_3(text):
+    return text.split(' ')
+
 from sklearn.feature_extraction.text import CountVectorizer
-count_vect = CountVectorizer(tokenizer=tokenize_0)
+count_vect = CountVectorizer(tokenizer=tokenize_3)
 count_vect.fit(fixed_text)
 
 counts = count_vect.transform(fixed_text)
